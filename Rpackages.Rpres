@@ -1,0 +1,55 @@
+My R Packages Dashboard
+========================================================
+author: Demudu Naganaidu
+date: 22nd May 2016
+autosize: true
+
+What does the appllication want to achieve?
+========================================================
+
+R is rapidly becoming the leading language in data science and statistics.
+
+One of the great things about R is the thousands of packages users have written to solve specific problems in various disciplines.
+
+Packages are collections of R functions, data, and compiled code in a well-defined format. 
+
+During your course of learning and/or using R you could have installed many R packages without really knowing what are the datasets in the each package(if any).
+
+This Shiny app - developed for Coursera's course 'Developing Data Products' - demonstrates the list packages currently installed in your machine and datasets associated with each package. Further you could also explore the datasets.
+
+
+How does the app work?
+========================================================
+
+This application first collects the list of the packages available in your machine.
+
+User can select a package to check if there is any dataset available in the package.
+
+If there is datasets available for the selected package a an input widget will shown for user to select a particular dataset.
+
+Once user select the dataset the associated package will be loaded in R and the selected dataset will be loaded to R environment.
+
+If the loading dataset is successful, user can explore the dataset's structure, summary and plot(if available).
+
+What will the user see?
+========================================================
+The user will see datatable list all packages in your machine ( like the one shown below)
+```{r, echo=FALSE}
+    library(DT)
+    packagelist <- installed.packages()
+    datatable(packagelist, rownames = FALSE,options = list(pageLength = 5, dom = 'tip'))
+
+```
+
+
+Where to find the app?
+========================================================
+The application itself: 
+https://purandemudu.shinyapps.io/My_R_Packages/ or 
+
+at R console :runGist("a041b2ec08052beb264e89655b12706c")
+
+NOTE: The application my not run correctly from RStudio Server as this application created to get R Packages from local machine. Use runGist() instead for better results.
+
+The R code: 
+https://github.com/demudu/R_Packages
